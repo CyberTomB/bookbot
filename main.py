@@ -4,11 +4,20 @@ def read_file(path):
     
     return file_contents
 
-def count_words(contents):
-    return len(contents.split())
+def count_words(text):
+    return len(text.split())
 
+def char_frequency(text):
+    fdict = {}
+    for char in text:
+        lower_char = char.lower()
+        if(lower_char not in fdict):
+            fdict[lower_char] = 1
+        else:
+            fdict[lower_char] += 1
+    return fdict
 
 def main():
-    print(count_words(read_file("./books/frankenstein.txt")))
+    print(char_frequency(read_file("./books/frankenstein.txt")))
 
 main()
